@@ -1,7 +1,8 @@
 # Maze Generator
 
-Personal exercise with Python and Python Curses on Vim.
+Personal exercise with maze generation, Python, Curses, and Vim.
 
 ## Info
 
-This maze generator is intended for use with Python [curses](https://docs.python.org/3/howto/curses.html).
+- Meant to be run in shell/terminal.
+- Uses Python [Curses](https://docs.python.org/3/howto/curses.html).
