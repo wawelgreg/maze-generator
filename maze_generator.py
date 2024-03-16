@@ -5,9 +5,9 @@ import time
 
 WALL = '\xe2'
 DIG_GUY = 'O'
-MAZE_WIDTH = -1
-MAZE_HEIGHT = -1
+MAZE_WIDTH, MAZE_HEIGHT = 10, 5
 FRAME_SLEEP = 5
+R_START, C_START = 1, 1
 
 log.basicConfig(format='%(asctime)s.%(msecs)03d %(levelname)-8s %(message)s', level=log.DEBUG, filename='maze_gen.log', datefmt='%Y-%m-%dT%H:%M:%S%z')
 
@@ -39,11 +39,21 @@ def maze_generation(rows_l, cols_l, wall):
 	for r in range(rows_l):
 		maze_matrix.append([wall for c in range(cols_l)])
 
-	# Draw maze to pad
-	pad.erase()
-	draw(maze_matrix)
-	pad.refresh(0,0, 0,0, curses.LINES-1,curses.COLS-1)
-	time.sleep(FRAME_SLEEP)
+	stack = []
+	rc, cc = R_START, C_START
+	stack.append((rc, cc))
+
+	while len(stack) > 0:
+		r_coord, c_coord = stack.pop()	
+		maze_matrix[r_coord][c_coord] = DIG_GUY
+		
+		# Draw maze to pad
+		pad.erase()
+		draw(maze_matrix)
+		# Display pad to terminal
+		pad.refresh(0,0, 0,0, curses.LINES-1,curses.COLS-1)
+		
+		time.sleep(FRAME_SLEEP)
 
 
 def func(scr):
