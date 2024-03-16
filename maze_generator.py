@@ -10,6 +10,8 @@ MAZE_WIDTH, MAZE_HEIGHT = 50, 25
 FRAME_SLEEP, END_SLEEP = 0.1, 2
 R_START, C_START = 1, 1
 
+#TODO: Insert/update logging messages in maze_generation()
+
 log.basicConfig(format='%(asctime)s.%(msecs)03d %(levelname)-8s %(message)s', level=log.DEBUG, filename='maze_gen.log', datefmt='%Y-%m-%dT%H:%M:%S%z')
 
 stdscr = curses.initscr()
@@ -22,6 +24,7 @@ def draw(m):
 			pad.addch(ri, ci, m[ri][ci])
 
 
+#TODO
 def maze_generation(rows_l, cols_l, wall):
 	# For cases if width|height too small
 	# or not odd in side length.	
