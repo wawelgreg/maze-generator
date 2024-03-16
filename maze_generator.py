@@ -2,11 +2,12 @@
 import logging as log
 import curses
 import time
+import random
 
 WALL = '\xe2'
 DIG_GUY = 'O'
-MAZE_WIDTH, MAZE_HEIGHT = 10, 5
-FRAME_SLEEP = 5
+MAZE_WIDTH, MAZE_HEIGHT = 50, 25
+FRAME_SLEEP, END_SLEEP = 0.1, 2
 R_START, C_START = 1, 1
 
 log.basicConfig(format='%(asctime)s.%(msecs)03d %(levelname)-8s %(message)s', level=log.DEBUG, filename='maze_gen.log', datefmt='%Y-%m-%dT%H:%M:%S%z')
@@ -52,17 +53,32 @@ def maze_generation(rows_l, cols_l, wall):
 	stack.append((rc, cc))
 
 	while len(stack) > 0:
-		r_coord, c_coord = stack.pop()	
-		log.debug("Popped (r:%r,c:%c) from stack", r_coord, c_coord)
-		maze_matrix[r_coord][c_coord] = DIG_GUY
-		
+		time.sleep(FRAME_SLEEP)
+
+		rc, cc = stack.pop()	
+		log.debug("Popped (r:%r,c:%c) from stack", rc, cc)
+		maze_matrix[rc][cc] = DIG_GUY
+	
 		# Draw maze to pad
 		pad.erase()
 		draw(maze_matrix)
 		# Display pad to terminal
 		pad.refresh(0,0, 0,0, curses.LINES-1,curses.COLS-1)
 		
-		time.sleep(FRAME_SLEEP)
+		maze_matrix[rc][cc] = ' '
+		
+		look = [(-2,0), (0,2), (2,0), (0,-2)]
+		random.shuffle(look)
+		
+		for lr, lc in look:
+			nr, nc = rc+lr, cc+lc
+			if 0<=nr<rows_l and 0<=nc<cols_l and maze_matrix[nr][nc] == wall:
+				stack.append((rc, cc))
+				maze_matrix[rc+(lr/2)][cc+(lc/2)] = ' '
+				stack.append((nr, nc))
+				break
+	time.sleep(END_SLEEP)
+	return maze_matrix
 
 
 def func(scr):
