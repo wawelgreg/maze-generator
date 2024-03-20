@@ -47,7 +47,7 @@ R_START, C_START = 1, 1
 
 *MAZE_WIDTH, MAZE_HEIGHT*: int: These integers (corresponding to the maze
             matrix row and column dimensions) should be less than the
-            curses.newpad(nlines, ncols) data structure dimensions.
+            *curses.newpad(nlines, ncols)* data structure dimensions.
 
 *FRAME_SLEEP*: float: This number value corresponds to the wait time between
             frame. Pretty much a tickrate of sorts. A higher value
