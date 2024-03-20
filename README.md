@@ -1,6 +1,7 @@
 # Maze Generator
 
-Personal exercise with maze generation, Python, Curses, and Vim.
+Simple visualized maze generation program.
+Written with Python, Curses, and Vim.
 
 ## Info
 
