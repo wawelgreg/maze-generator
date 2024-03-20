@@ -7,6 +7,18 @@ Personal exercise with maze generation, Python, Curses, and Vim.
 - Meant to be run in shell/terminal.
 - Uses Python [Curses](https://docs.python.org/3/howto/curses.html).
 
+## Background
+
+This maze generator utilizes an iterativeversion of the recursive backtracker
+algorithmm, which is a randomized version of the depth-first search algorithm.
+The program will crash due to a set limit on depth of recursion allowed, therefore,
+the maze_generation() function had to be implemented with a stack.
+
+The steps of the maze_generation() function are as follows:
+- Start at the initial cell (designated by R_START, C_START)
+- Push these coordinates to the stack
+  - s
+
 ## Usage
 
 The constants at the top of the file can be modified as you please:
