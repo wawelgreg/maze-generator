@@ -2,6 +2,8 @@
 
 Simple visualized maze generation program.
 
+![Screenshot 2024-03-19 213021](https://github.com/wawelgreg/maze-generator/assets/141285799/4e23b6e8-3f2f-486b-8a17-8dd2ac0c69f4)
+
 ## Info
 
 - Meant to be run in shell/terminal.
@@ -27,6 +29,11 @@ The steps of the *maze_generation()* function are as follows:
               - Break
 
 ## Usage
+
+To run, call the executable python file from the command line:
+```
+./maze_generator.py
+```
 
 The constants at the top of the file can be modified as you please:
 
