@@ -1,7 +1,6 @@
 # Maze Generator
 
 Simple visualized maze generation program.
-Written with Python and curses module, all written in Vim.
 
 ## Info
 
@@ -11,11 +10,11 @@ Written with Python and curses module, all written in Vim.
 ## Background
 
 This maze generator utilizes an iterative version of the recursive backtracker
-algorithmm, which is a randomized version of the depth-first search algorithm.
-The program will crash due to a set limit on depth of recursion allowed, therefore,
+algorithm, which is a randomized version of the depth-first search algorithm.
+Originally deveoloped with recursion, the program would reach max depth of recursion, therefore,
 the *maze_generation()* function had to be implemented with a stack.
 
-The steps of the *maze_generation()8 function are as follows:
+The steps of the *maze_generation()* function are as follows:
 - Start at the initial cell (designated by R_START, C_START)
 - Push these coordinates to the stack
   - While length of stack is not empty
