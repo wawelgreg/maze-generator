@@ -17,7 +17,14 @@ the maze_generation() function had to be implemented with a stack.
 The steps of the maze_generation() function are as follows:
 - Start at the initial cell (designated by R_START, C_START)
 - Push these coordinates to the stack
-  - s
+  - While length of stack is not empty
+      - Pop coordinates from stack
+      - For each direction 2 units from the coordinate:
+          - If coordinate found is in the maze and WALL exists:
+              - Push the previously popped coordinates to stack
+              - Bore hole between previous coordinate and new found coordinate
+              - Push new found coordinate to stack
+              - Break
 
 ## Usage
 
