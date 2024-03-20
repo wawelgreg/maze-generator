@@ -9,7 +9,7 @@ Personal exercise with maze generation, Python, Curses, and Vim.
 
 ## Background
 
-This maze generator utilizes an iterativeversion of the recursive backtracker
+This maze generator utilizes an iterative version of the recursive backtracker
 algorithmm, which is a randomized version of the depth-first search algorithm.
 The program will crash due to a set limit on depth of recursion allowed, therefore,
 the maze_generation() function had to be implemented with a stack.
